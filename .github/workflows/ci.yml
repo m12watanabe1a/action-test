@@ -21,9 +21,13 @@ jobs:
     container:
       image: ubuntu:focal
     steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
       - name: Setup ROS
         uses: ros-tooling/setup-ros@v0.2
         with:
           use-ros2-testing: true
           required-ros-distributions: foxy
+
       - run: ./install.sh
