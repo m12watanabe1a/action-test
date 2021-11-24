@@ -32,15 +32,11 @@ jobs:
 
       - name: Cache Mongo Drivers
         uses: actions/cache@v2
-        env:
-          cache-name: cache-mongo-drivers
         with:
-          path: $HOME/.local/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/install.sh') }}
+          path: ${HOME}/.ccache
+          key: ${ { matrix.config.name } }-ccache-${ { steps.ccache_cache_timestamp.outputs.timestamp } }
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${ { matrix.config.name } }-ccache-
 
       - name: Setup Mongo Drivers
         run: |
