@@ -1,5 +1,5 @@
 # Install C driver
-mkdir -p ~/.local/src; cd ~/.local/src
+mkdir -p $HOME/.local/src; cd $HOME/.local/src
 git clone https://github.com/mongodb/mongo-c-driver.git -b 1.17.7
 cd mongo-c-driver
 python3 build/calc_release_version.py > VERSION_CURRENT
