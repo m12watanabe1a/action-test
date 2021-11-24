@@ -26,4 +26,4 @@ jobs:
         with:
           use-ros2-testing: true
           required-ros-distributions: foxy
-      - run: vcs --help
+      - run: ./install.sh
