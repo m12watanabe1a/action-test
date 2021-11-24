@@ -44,5 +44,9 @@ jobs:
 
       - name: Setup Mongo Drivers
         run: |
+          apt install -y ccache
+          export CC="/usr/lib/ccache/gcc"
+          export CXX="/usr/lib/ccache/g++"
           export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.local/lib
           ./install.sh
+          ccache -s
