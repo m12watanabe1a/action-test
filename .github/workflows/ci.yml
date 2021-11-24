@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+    branches:
+      - main
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+  schedule:
+    - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    container:
+      image: ubuntu:focal
+    steps:
+      - name: Setup ROS
+        uses: ros-tooling/setup-ros@v0.2
+        with:
+          use-ros2-testing: true
+          required-ros-distributions: foxy
+      - run: vcs --help
