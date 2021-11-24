@@ -30,7 +30,7 @@ jobs:
           use-ros2-testing: true
           required-ros-distributions: foxy
 
-      - name: Cache mongo drivers
+      - name: Cache Mongo Drivers
         uses: actions/cache@v2
         env:
           cache-name: cache-mongo-drivers
@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Setup Mongo DB
+      - name: Setup Mongo Drivers
         run: |
           export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.local/lib
           ./install.sh
